@@ -7,7 +7,7 @@ prior_month = 0
 net_change = []
 months = []
 current_month = []
-# open csv, iterate (loop) through data while performing calulations
+
 csvpath = os.path.join('budget_data.csv')
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile)
@@ -24,7 +24,7 @@ with open(csvpath) as csvfile:
         prior_month = revenue
         net_change += [monthly_change]
         current_month += month
-# calcuated variables
+        
 max_inc = max(net_change)
 max_dec = min(net_change)
 max_month = months[net_change.index(max(net_change))]
@@ -32,7 +32,7 @@ min_month = months[net_change.index(min(net_change))]
 max_month = max_month[0]
 min_month = min_month[0]
 net_change = sum(net_change[1:])
-# output results
+
 print(f"Financial Analysis\nTotal Months: {num_months}\nTotal: ${total_net}\nAverage Change: ${net_change/(num_months-1):.2f}")
 print(f"Greatest Increase in Profits: {max_month} (${max_inc})\nGreatest Decrease in Profits: {min_month} (${max_dec})")
 
